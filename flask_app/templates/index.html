@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <section class="h-100 h-custom gradient-custom-2" >
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <h1 class="my-5" id="title">Statler & Waldorf</h1>
+                <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <!-- Registration -->
+                                        <form action="/register" method="post" class=>
+                                            <h2 class="fw-normal mb-5"  id="register_title">Register</h2>
+                                            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                                                {% if messages %}
+                                                <div class="alert alert-danger" role="alert">                                                   
+                                                        {% for message in messages %}
+                                                        <p>{{message}}</p>
+                                                        {% endfor %}
+                                                </div>
+                                                {% endif %}
+                                            {% endwith %}
+
+                                                <div class="row">
+                                                    <div class="col-md-10 mb-4 pb-2">                                                        
+                                                        <div class="form-group form-outline">
+                                                            <input type="text" name="first_name" placeholder="Enter your first name" class="form-control ">
+                                                        </div>
+                                                        
+                                                        <div class="form-group form-outline">
+                                                            <input type="text" name="last_name" placeholder="Enter your last name" class="form-control">
+                                    
+                                                        </div>
+                                                        <div class="form-group form-outline">
+                                                            <input type="text" name="username" placeholder="Choose a username" class="form-control">
+                                                            
+                                                        </div>
+                                                    </div>                                                
+                                                </div>
+
+                                                <div class="mb-4 pb-2">                                                   
+                                                    <div class="form-group form-outline">
+                                                        <input type="text" name="email" placeholder= "Enter your email"class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 pb-2 mb-md-0 pb-md-0">
+                                                    <div class="mb-4">
+                                                        <div class="form-group form-outline">
+                                                            <input type="password" name="password" placeholder="Enter password" class="form-control">
+
+                                                        </div>
+                                                    </div>
+                                                        <div class="form-group form-outline">
+                                                            <input type="password" name="confirm" placeholder="Confirm password" class="form-control">
+
+                                                        </div>
+                                                </div>          
+                                            <input type="submit" value="Register" class="btn btn-primary">
+                                        </form>
+                                    </div>
+                                </div>  
+                                
+                                <!-- Login Information -->
+                                <form action="/login" method="post" class="">
+                                    <div class="p-5">
+                                        <h2 class="fw-normal mb-5" id="login_title">Login</h2>
+                                        {% with messages = get_flashed_messages(category_filter=['login']) %}
+                                            {% if messages %}
+                                            <div class="alert alert-danger" role="alert">
+                                                    {% for message in messages %}
+                                                    <p>{{message}}</p>
+                                                    {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        {% endwith %}
+
+                                        <div class="mb-4 pb-2 mb-md-0 pb-md-0">
+                                            <div class="form-group">
+                                                <input type="text" name="email" class="form-control" placeholder="Enter email">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 pb-2 mb-md-0 pb-md-0">
+                                            <div class="form-group">
+                                                <input type="password" name="password" class="form-control" placeholder="Enter password">
+                                                
+                                            </div>
+                                        </div>
+                                        <input type="submit" value="Login" class="btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
