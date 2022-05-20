@@ -10,9 +10,7 @@ __pycache__/
 
 #adding this (Mikayla)
 
-mysqlconnection.py
-__init__.py
-server.py
+
 
 
 # C extensions
