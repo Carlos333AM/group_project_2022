@@ -48,6 +48,30 @@ class Movie:
         query = "UPDATE movies SET rating = %(rating)s, title = %(title)s, img_path = %(img_path)s, description = %(description)s WHERE id = %(id)s"
         return connectToMySQL(cls.db_name).query_db(query,data)
     
+    
+    @classmethod
+    def get_movie_with_comment(cls, data):
+        query = "SELECT * FROM movies LEFT JOIN comments ON comments.movie_id = movies.id LEFT JOIN users ON comments.user_id = users.id WHERE movies.id = %(id)s;"
+        results = connectToMySQL('users').query_db(query, data)
+        # results will be a list of posts with the attached comments
+        movie = cls(results[0])
+        for row_from_db in results: 
+        #Now we parse the user data to make instances of comments and add them into our list. 
+            user_data = {
+                "id": row_from_db["users.id"], 
+                "first_name": row_from_db["first_name"],
+                "last_name" : row_from_db["last_name"],
+                "username": row_from_db["username"],
+                "email": row_from_db["email"],
+                "password": row_from_db["password"],
+                "created_at": row_from_db["comments.created_at"],
+                "updated_at" : row_from_db ["comments.updated_at"]
+            }
+            movie.comments.append(comment.Comment(user_data))
+        return movie 
+    
+    
+    
     #DELETE movie by movie's id 
     @classmethod
     def destroy(cls,data): 

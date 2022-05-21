@@ -78,23 +78,52 @@ def edit_movie(id):
     }
     return render_template("edit_movie.html", movie = Movie.get_one_movie(data), user = User.get_by_id(user_data))
 
-#Route that posts updated movie
-@app.route('/update/movie', methods = ['POST']) #<int:movie_id>
-def update_movie():
-    if "user_id" not in session: 
-        return redirect ('/logout')
+
+
+#Route that POST updated movie
+@app.route('/update/movie/<int:id>', methods = ['GET','POST'])
+def update_movie(id):
+    #check if user in session if not kick out
+    if "user_id" not in session:
+        return redirect('/logout')
+    # if doesn't reach validation requiremnts just redirects back to the page it's on
     if not Movie.validate_movie(request.form):
-        #if doesn't meet validation requirements... where should we go??
-        return redirect('create/movie') #f string?? - edit/movie route 
-    data = {
-        "rating": request.form["rating"], 
-        "title" : request.form ["title"],
-        "img_path" : request.form ["img_path"],
-        "description" : request.form ["description"],
-        "id" : request.form ["id"]
-    }
-    Movie.update_movie(data)
-    return redirect ('/dashboard')
+        return redirect (f'/edit/movie/{id}')   
+    if request.method == 'POST':
+        # check if the post request has the file part
+        movie = Movie.get_one_movie({"id": id})
+        print('****************', request.files)
+        if 'file' not in request.files:
+            flash('No file part')
+        file = request.files["file"]
+        print(file)
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            print(filename)
+            data = {
+                "id" : id, 
+                "rating" : request.form["rating"], 
+                "title" : request.form["title"], 
+                "img_path" : "/static/images/" + filename,
+                "description" : request.form ["description"], 
+                "user_id" : session["user_id"]
+            }
+            Movie.update_movie(data)
+        else: 
+            data = {
+                "id" : id, 
+                "rating" : request.form["rating"], 
+                "title" : request.form["title"], 
+                "img_path" : movie.img_path, 
+                "description" : request.form ["description"], 
+                "user_id" : session["user_id"]
+            }
+            Movie.update_movie(data)
+        # if successful reaches dashboard? or new movie profile?
+        return redirect('/dashboard') #change this
 
 
 #Route that goes to singular movie profile - connect to the title of movie 
@@ -143,3 +172,5 @@ def destroy_movie(id):
 #     Movie.create_movie(data)
 #     if successful reaches dashboard? or new movie profile?
 #     return redirect ('/dashboard')
+
+
