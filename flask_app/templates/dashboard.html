@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1>Hey there, pretty lady</h1>
+    <a href="/create/movie">Add A Movie</a>
+    <br> <br>
+    <a href="/logout">Logout</a>
+    <h1>Hey there, {{user.username}}</h1>
+    <h1>This is where you view allll movies</h1>
+
+
+    {% for movie in movie %}
+        <img src="{{movie.img_path}}" alt="">
+        <p>{{movie.rating}}</p>
+        <p>{{movie.title}}</p>
+        <p>{{movie.description}}</p>
+    {% endfor %}
+
 </body>
 </html>
