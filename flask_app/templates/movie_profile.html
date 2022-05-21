@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="/dashboard">Dashboard</a>
+    <h1>{{user.username}}</h1>
+    <h1>This is the movie profile</h1>
+    <img src="{{movie.img_path}}" alt="">
+    <p>{{movie.description}}</p>
+
+
+    <form action='/add/comment' method="post">
+        {% with messages = get_flashed_messages(category_filter=['post']) %}
+            {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Hold On!</strong>
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+        </div>
+            {% endif %}
+        {% endwith %}
+
+        <div style="border: solid thin #aaa; padding: 10px; background-color: white;">                   
+            <textarea name="content" for="content" id="comment_textarea" cols="30" rows="10" placeholder="What do you want to share..."></textarea>
+            <input id="comment_button" type="submit" value="Post">
+        </div>
+    </form>
+
+
+    {%for comment in movie.comments%}
+    <div class="comment_container">
+        <div class="comment_card">
+            {% if comment.user.id != session.user_id%}
+                <h3 class="comment_title" style="font-size: 14px; color: #2c2b30;"> {{comment.user.username}}</h3>
+            {% else %}
+                <h3 class="comment_title" style="font-size: 14px; color: #2c2b30;"> You</h3>
+            {% endif %}
+            <p> {{comment.content}}</p>
+            <!-- {% if comment.user.id == session.user_id%} -->
+            <div class="comment_footer">
+                <a href="/destroy/comment/{{comment.id}}" style=" text-decoration: none; color: #2c2b30;">Delete</a>
+            </div>
+            <!-- {% endif %} -->
+        </div>
+    </div>
+{%endfor%}
+
+</body>
+</html>

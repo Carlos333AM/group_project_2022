@@ -17,8 +17,11 @@
     {% for movie in movie %}
         <img src="{{movie.img_path}}" alt="">
         <p>{{movie.rating}}</p>
-        <p>{{movie.title}}</p>
+        <a href="/movie/{{movie.id}}">{{movie.title}}</a>
         <p>{{movie.description}}</p>
+        {% if user.id == session.user_id %}
+            <a href="/edit/movie/{{movie.id}}">Edit</a>
+        {% endif %}
     {% endfor %}
 
 </body>
