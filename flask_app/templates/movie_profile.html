@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Profile</title>
 </head>
 <body>
 
@@ -26,14 +26,17 @@
         </div>
             {% endif %}
         {% endwith %}
-
+        
+        <!-- Comment Box -->
         <div style="border: solid thin #aaa; padding: 10px; background-color: white;">                   
-            <textarea name="content" for="content" id="comment_textarea" cols="30" rows="10" placeholder="What do you want to share..."></textarea>
+            <textarea name="content" for="content" id="comment_textarea" cols="30" rows="10" placeholder="Share about this movie..."></textarea>
+            <input type="hidden" name="movie_id" value="{{movie.id}}">
             <input id="comment_button" type="submit" value="Post">
         </div>
+
     </form>
 
-
+    <!-- Comments should appear here -->
     {%for comment in movie.comments%}
     <div class="comment_container">
         <div class="comment_card">
