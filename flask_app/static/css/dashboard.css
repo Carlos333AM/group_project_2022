@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#4a0402;
+    --secondary-color:#620601;
+}
+
+body{
+    background-color: var(--primary-color);
+    font-family: 'Play', sans-serif;
+    margin: 0;
+    color: #fbdecc;
+    
+}
+
+header{
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: #fbdecc;
+}
+
+.header_links{
+    display: flex;
+    justify-content: flex-end;
+    color: #fbdecc;
+}
+
+.header_link{
+    color: #fbdecc;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.movie{
+    width: 300px;
+    margin: 1.5rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.movie img{
+    width:100%;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie_info{
+    color: #fbdecc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+
+.movie_title{
+    color: #fbdecc;
+    text-decoration: none;
+}
+
+.movie_info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+#rating{
+    color: #fccf6f;
+}
+
+.description{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.2s ease-in;
+
+}
+
+.movie:hover .description{
+    transform: translateY(0);
+}
+
+.edit_delete_button{
+    margin-left: 10px;
+}
+
+.movie_title_overview:hover{
+    font-size: 100%;
+    color: black;
+    text-decoration: none;
+}
