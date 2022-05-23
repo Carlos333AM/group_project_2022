@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <header>
+        <div class="nav_bar">
+            <h1>Hi, {{user.username}}</h1>
+
+            <div class="header_links">
+                <a class="header_link" href="/create/movie">Add A Movie</a>
+                <br> <br>
+                <a class="header_link" href="/logout">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main_content">
+        {% for movie in movie %}
+            <div class="movie">
+                <img src="{{movie.img_path}}" alt="Image">
+                <div class="movie_info">
+                    <a class="movie_title" href="/movie/{{movie.id}}">
+                        <h3>{{movie.title}}</h3>                  
+                    </a>
+                    <span id="rating">{{movie.rating}}</span>
+                </div>
+
+                <div class="description">
+                    <a class="movie_title_overview" href="/movie/{{movie.id}}">
+                        <h3>{{movie.title}}</h3>                  
+                    </a>
+                    <p>{{movie.description}}</p>
+                    {% if user.id == session.user_id %}
+                    <div class="edit_delete_button">
+                        <a href ="/edit/movie/{{movie.id}}">Edit</a>
+                        <a href="/destroy/movie/{{movie.id}}">Delete</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+    </main>
+
+
+</body>
+</html>
