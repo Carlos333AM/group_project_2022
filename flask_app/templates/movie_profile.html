@@ -23,7 +23,7 @@
                 {% for message in messages %}
                     <p>{{message}}</p>
                 {% endfor %}
-        </div>
+        </div> 
             {% endif %}
         {% endwith %}
         
@@ -32,8 +32,7 @@
             <textarea name="content" for="content" id="comment_textarea" cols="30" rows="10" placeholder="Share about this movie..."></textarea>
             <input type="hidden" name="movie_id" value="{{movie.id}}">
             <input id="comment_button" type="submit" value="Post">
-        </div>
-
+        </div> 
     </form>
 
     <!-- Comments should appear here -->
