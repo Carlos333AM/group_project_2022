@@ -20,9 +20,10 @@ class Comment:
         query = "INSERT INTO comments (content, movie_id, user_id) VALUES (%(content)s,%(movie_id)s, %(user_id)s);"
         return connectToMySQL(cls.db_name).query_db(query,data)
     
+    #DESCENDING ORDER BY POST
     @classmethod
     def get_all_comments(cls):
-        query = "SELECT * FROM comments ORDER BY created_at DESC;"
+        query = "SELECT * FROM comments;"
         results = connectToMySQL(cls.db_name).query_db(query)
         all_comments = []
         for row in results: 
@@ -39,8 +40,14 @@ class Comment:
     
     @classmethod
     def movie_with_comment(cls,data):
-        query = "SELECT * FROM movies as movies JOIN comments as comments on comments.movie_id = movies.id JOIN users on comments.user_id = users.id WHERE comments.id = %(id)s;"
-        return connectToMySQL(cls.db_name).query_db(query, data)
+        query = "SELECT comments.* FROM movies JOIN comments on comments.movie_id = movies.id WHERE movies.id = %(id)s;"
+        results = connectToMySQL(cls.db_name).query_db(query,data)
+        comments = []
+        for row in results:
+            one_comment = cls(row)
+            one_comment.user = user_model.User.get_by_id({'id': row["user_id"]})
+            comments.append(one_comment)
+        return comments
 
     @classmethod
     def get_comments_for_one_movie(cls,data): 
@@ -49,7 +56,7 @@ class Comment:
         comments = []
         for row in results: 
             one_comment = (cls(row))
-            one_comment.user = user.User.get_by_id({"id": row["users.id"]})
+            one_comment.user = user_model.User.get_by_id({"id": row["users.id"]})
             comments.append(one_comment)
         return comments 
     
