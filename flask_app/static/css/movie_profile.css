@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#4a0402;
+    --secondary-color:#620601;
+}
+
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/static/images/lights.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #eee;
+}
+
+main{
+    background-color: var(--primary-color);
+    margin: 10rem;
+    border-radius: 5px;
+}
+
+header{
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    margin: 1.5rem;
+}
+
+.header_links{
+    display: flex;
+    justify-content: flex-end;
+    color: #fbdecc;
+}
+
+.header_link{
+    color: #fbdecc;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.movie_title{
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+
+}
+
+.movie{
+    width: 500px;
+    height: 600px;
+    margin: 1.5rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.movie_description{
+    width: 700px;
+    
+
+}
+
+.movie_info{
+    margin-top: 10px;
+    margin-left: 75px;
+}
+
+.movie img{
+    width:100%;
+}
+
+.img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie_content{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.line{
+    border-color: grey;
+    width: 43rem;
+}
+
+textarea{
+    height: 20px;
+    width: 50%;
+    border: none;
+    border-bottom: 2px solid #eee;
+    background-color: transparent;
+    margin-top: 50px;
+    margin-left: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+#comment_box{
+    border: solid thin #aaa;
+    padding: 10px;
+    background-color: transparent;
+
+}
+
+::placeholder{
+    color: #fff;
+    opacity: 0.5;
+}
+
+.post_area{
+    width: 100rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    padding: 10rem;
+    padding-left: 19rem;
+}
+
+#post_bar{
+    margin-top: 20px;
+    background-color: var(--primary-color);
+    padding: 10px;
+
+}
+
+.comment_container{
+    padding-left: 8.5rem;
+
+}
+
+.comment_card{
+    margin-top: 30px;
+}
+
+.comment_container::before{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.3);
+    position:absolute;
+    min-height:100%; 
+    width:1px; 
+    left: -10px; 
+}
+
+.comment_title{
+    color: whitesmoke;
+}
