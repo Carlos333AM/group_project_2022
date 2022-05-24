@@ -38,6 +38,8 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit itaque suscipit quam incidunt doloremque molestiae necessitatibus. Itaque deserunt explicabo officiis a adipisci? Eaque, aut! Ducimus reprehenderit autem tempora et! Natus.</p>
                     <hr class="line">
                 </div>
+
+                <!-- for loop - jinja  -->
                 <div class="actors">
                     <p>STARS</p>
                     <p>Robert Downey Jr.</p>
@@ -73,30 +75,33 @@
                     <input id="comment_button" type="submit" value="Post">
                 </div>
 
+                <div class="post_bar">
+                    <!-- Comments should appear here -->
+                    {%for comment in movie.comments%}
+                        <div class="comment_container">
+                            <div class="comment_card">
+                                {% if comment.user.id != session.user_id%}
+                                <h3 class="comment_title" style="font-size: 14px;"> {{comment.user.username}}</h3>
+                                {% else %}
+                                <h3 class="comment_title" style="font-size: 14px;"> You</h3>
+                                {% endif %}
+                                <p> {{comment.content}}</p>
+                                <!-- {% if comment.user.id == session.user_id%} -->
+                                <div class="comment_footer">
+                                    <a href="/destroy/comment/{{comment.id}}" style=" text-decoration: none; color: white;">Delete</a>
+                                </div>
+                                <!-- {% endif %} -->
+                            </div>
+                        </div>
+                    {%endfor%}
+                </div>
+                
+            </div>
+            
 
                 
             </form>
 
-            <div class="post_bar">
-                <!-- Comments should appear here -->
-                {%for comment in movie.comments%}
-                    <div class="comment_container">
-                        <div class="comment_card">
-                            {% if comment.user.id != session.user_id%}
-                            <h3 class="comment_title" style="font-size: 14px;"> {{comment.user.username}}</h3>
-                            {% else %}
-                            <h3 class="comment_title" style="font-size: 14px;"> You</h3>
-                            {% endif %}
-                            <p> {{comment.content}}</p>
-                            <!-- {% if comment.user.id == session.user_id%} -->
-                            <div class="comment_footer">
-                                <a href="/destroy/comment/{{comment.id}}" style=" text-decoration: none; color: white;">Delete</a>
-                            </div>
-                            <!-- {% endif %} -->
-                        </div>
-                    </div>
-                {%endfor%}
-            </div>
 
 
         </div>
