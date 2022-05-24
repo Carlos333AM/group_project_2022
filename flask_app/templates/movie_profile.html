@@ -4,55 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/movie_profile.css">
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
     <title>Movie Profile</title>
 </head>
 <body>
 
-    <a href="/dashboard">Dashboard</a>
-    <h1>{{user.username}}</h1>
-    <h1>This is the movie profile</h1>
-    <img src="{{movie.img_path}}" alt="">
-    <p>{{movie.description}}</p>
-
-
-    <form action='/add/comment' method="post">
-        {% with messages = get_flashed_messages(category_filter=['post']) %}
-            {% if messages %}
-        <div class="alert alert-danger" role="alert">
-            <strong>Hold On!</strong>
-                {% for message in messages %}
-                    <p>{{message}}</p>
-                {% endfor %}
-        </div> 
-            {% endif %}
-        {% endwith %}
-        
-        <!-- Comment Box -->
-        <div style="border: solid thin #aaa; padding: 10px; background-color: white;">                   
-            <textarea name="content" for="content" id="comment_textarea" cols="30" rows="10" placeholder="Share about this movie..."></textarea>
-            <input type="hidden" name="movie_id" value="{{movie.id}}">
-            <input id="comment_button" type="submit" value="Post">
-        </div> 
-    </form>
-
-    <!-- Comments should appear here -->
-    {%for comment in movie.comments%}
-    <div class="comment_container">
-        <div class="comment_card">
-            {% if comment.user.id != session.user_id%}
-                <h3 class="comment_title" style="font-size: 14px; color: #2c2b30;"> {{comment.user.username}}</h3>
-            {% else %}
-                <h3 class="comment_title" style="font-size: 14px; color: #2c2b30;"> You</h3>
-            {% endif %}
-            <p> {{comment.content}}</p>
-            <!-- {% if comment.user.id == session.user_id%} -->
-            <div class="comment_footer">
-                <a href="/destroy/comment/{{comment.id}}" style=" text-decoration: none; color: #2c2b30;">Delete</a>
-            </div>
-            <!-- {% endif %} -->
+    <main>
+        <div class="movie_title">
+            <h1>{{movie.title}}</h1>
         </div>
-    </div>
-{%endfor%}
+    
+        <header>
+            <div class="header_links">
+                <a  class="header_link" href="#">{{user.username}}</a>
+                <a class="header_link" href="/dashboard">Dashboard</a>
+                <br> <br>
+                <a class="header_link" href="/logout">Logout</a>
+            </div>
+        </header>
 
+        <div class="movie_content">
+
+            <div id="img">
+                <div class="movie">
+                    <img src="{{movie.img_path}}" alt="movie_poster">
+                </div>
+            </div>
+        
+            <div class="movie_info">
+                <div class="movie_description">
+                    <p>{{movie.description}}</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit itaque suscipit quam incidunt doloremque molestiae necessitatibus. Itaque deserunt explicabo officiis a adipisci? Eaque, aut! Ducimus reprehenderit autem tempora et! Natus.</p>
+                    <hr class="line">
+                </div>
+                <div class="actors">
+                    <p>STARS</p>
+                    <p>actor</p>
+                    <p>actress</p>
+                    <p>actor</p>
+                    <hr class="line">
+                </div>
+            </div>
+
+        </div>
+    
+        
+    
+        
+    
+        <form action='/add/comment' method="post">
+            {% with messages = get_flashed_messages(category_filter=['post']) %}
+                {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Hold On!</strong>
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+                {% endif %}
+            {% endwith %}
+            
+            <!-- Comment Box -->
+            <div class="post_area">
+                <div class="comment_box">                   
+                    <textarea name="content" for="content" id="comment_textarea" cols="" rows="" placeholder="Share about this movie..."></textarea>
+                    <input type="hidden" name="movie_id" value="{{movie.id}}">
+                    <input id="comment_button" type="submit" value="Post">
+                </div>
+
+
+                
+            </form>
+
+            <div class="post_bar">
+                <!-- Comments should appear here -->
+                {%for comment in movie.comments%}
+                    <div class="comment_container">
+                        <div class="comment_card">
+                            {% if comment.user.id != session.user_id%}
+                            <h3 class="comment_title" style="font-size: 14px;"> {{comment.user.username}}</h3>
+                            {% else %}
+                            <h3 class="comment_title" style="font-size: 14px;"> You</h3>
+                            {% endif %}
+                            <p> {{comment.content}}</p>
+                            <!-- {% if comment.user.id == session.user_id%} -->
+                            <div class="comment_footer">
+                                <a href="/destroy/comment/{{comment.id}}" style=" text-decoration: none; color: white;">Delete</a>
+                            </div>
+                            <!-- {% endif %} -->
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+
+
+        </div>
+    </main>
 </body>
 </html>

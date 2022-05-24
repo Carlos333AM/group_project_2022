@@ -135,7 +135,10 @@ def show_movie_profile(id):
     user_data = {
         "id" : session["user_id"]
     }
-    return render_template("movie_profile.html", movie = Movie.get_one_movie(data), user = User.get_by_id(user_data))
+    comment_data = {
+        "id" : id
+    }
+    return render_template("movie_profile.html", movie = Movie.get_one_movie(data),  user = User.get_by_id(user_data))
 
 
 #Deltes movie by movie id 
