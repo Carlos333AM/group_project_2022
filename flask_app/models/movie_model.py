@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
-from flask_app.models import actor_model
+from flask_app.models import comment_model
 
 class Movie:
     db_name = "group_project"
@@ -40,7 +40,9 @@ class Movie:
     def get_one_movie(cls,data): 
         query = "SELECT * FROM movies WHERE id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
-        return cls(results[0])
+        movie = cls(results[0])
+        movie.comments = comment_model.Comment.movie_with_comment({"id": results[0]["id"]})
+        return movie
     
     #EDIT(Update) movie by movie's id
     @classmethod
@@ -67,7 +69,7 @@ class Movie:
                 "created_at": row_from_db["comments.created_at"],
                 "updated_at" : row_from_db ["comments.updated_at"]
             }
-            movie.comments.append(comment.Comment(user_data))
+            movie_model.comments.append(comment_model.Comment(user_data))
         return movie 
     
     
