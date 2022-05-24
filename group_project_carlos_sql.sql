@@ -12,4 +12,7 @@ SELECT * FROM comments;
 
 SELECT * FROM actors_has_movies; 
 
+SELECT * FROM users WHERE email = %(email)s;
 
+
+SELECT * FROM actors; 

@@ -18,6 +18,15 @@ class Actor:
         query = "INSERT INTO actors (first_name, last_name, img_path) VALUES (%(first_name)s,%(last_name)s,%(img_path)s);" 
         return connectToMySQL(cls.db_name).query_db(query, data) 
 
+
+    # CREATE and SAVE actor into database 
+    # @classmethod 
+    # def create_actor(cls,data): 
+    #     query = "INSERT INTO actors (first_name, last_name, img_path) VALUES (%(first_name)s,%(last_name)s,%(img_path)s);" 
+    #     return connectToMySQL(cls.db_name).query_db(query, data) 
+
+
+
     #RETRIVE ALL actors from database 
     @classmethod
     def get_all_actors(cls):
