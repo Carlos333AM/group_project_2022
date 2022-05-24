@@ -34,7 +34,7 @@
                     <button type="submit" class="submit-btn"> Log in </button>
                 </form>
                 <!-- register potion -->
-                <form id="register" class="input-group-register">
+                <form id="register" class="input-group-register" action="/register" method="post">
                     {% with messages = get_flashed_messages(category_filter=['register']) %}
                         {% if messages %}
                         <div class="alert alert-danger" role="alert">                                                   

@@ -38,7 +38,7 @@
                         <h3>{{movie.title}}</h3>                  
                     </a>
                     <p>{{movie.description}}</p>
-                    {% if user.id == session.user_id %}
+                    {% if movie.user_id == session.user_id %} 
                     <div class="edit_delete_button">
                         <a href ="/edit/movie/{{movie.id}}">Edit</a>
                         <a href="/destroy/movie/{{movie.id}}">Delete</a>

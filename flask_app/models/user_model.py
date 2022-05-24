@@ -64,7 +64,10 @@ class User:
     def get_by_id(cls,data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
-        return cls(results[0])
+        if len(results) >= 1: 
+            return cls(results[0]) 
+        else: 
+            users = [] 
     
     #Validation for register
     @staticmethod
