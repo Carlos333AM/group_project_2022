@@ -9,6 +9,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 from flask_app.models.movie_model import Movie 
 from flask_app.models.user_model import User 
+from flask_app.models.actor_model import Actor 
 
 
 
@@ -60,8 +61,8 @@ def upload_file():
                 "user_id" : session["user_id"]
             }
             Movie.create_movie(data)
-        # if successful reaches dashboard? or new movie profile?
-        return redirect('/dashboard') #change this
+        # if successful, reaches add actors page to insert 3 actors. 
+        return redirect('/actors') 
 
 
 
