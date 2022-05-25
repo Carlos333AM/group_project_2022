@@ -10,9 +10,7 @@
 <body>
 <img class="logo_header" src="/static/images/Group_Project_Logo.png"></div> 
     </p>
-    <div class = "forms">
-        <div class = "container">   
-            <a data-controls-modal="login-form" data-backdrop="static" data-keyboard="false">   
+        <div class = "log_reg_form">
             <div class = "content">
                 <form id="register" class="input-group-register" action="/register" method="post">
                     {% with messages = get_flashed_messages(category_filter=['register']) %}
@@ -31,11 +29,10 @@
                     <input type="password"  class="input-field" name="password" placeholder="Password" >
                     <input type="password" class="input-field" name="confirm" placeholder="Confirm password" >
                     <button type="submit" class="submit-btn"> Register </button>
-                </form>                    
-                <p>Already have an account?<a button type="button" href="/" class="toggle-btn"> Login</button></p>
+                </form> <br><br><br><br>                
+                <p>Already have an account?<button class="toggle" onclick="window.location.href = '/';">Login</button></p>
             </div>
         </div>  
-    </div>
         
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/login.js') }}"></script>
 

@@ -1,5 +1,7 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
+body{
+    font-family: 'Play', sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,10 +21,12 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Play', sans-serif;
+
 }
 
 
-.container{
+.log_reg_form{
     position:relative;
     width: 295px;
     height: 500px;
@@ -42,8 +46,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
 
 form{
@@ -51,15 +53,15 @@ form{
     height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    position: flex-start;
 }
 
 form input, button{
 
     border: none;
-    height: 40px;
     outline: none;
-    border-radius: 2px 20%;
+    border-radius: 10px;
 }
 
 button{
@@ -69,8 +71,9 @@ button{
 form input{
     width: 260px;
     margin: 5px 0;
-    background: #333333;
+    background: lightgray;
     padding: 0 10px;
+    height: 40px;
 }
 
 form button{
@@ -78,6 +81,7 @@ form button{
     color: white;
     font-size: 16px;
     font-weight: bolder;
+    height: 40px;
 }
 
 .content p{
@@ -89,4 +93,13 @@ form button{
 .content p a{
     text-decoration: none;
     color: #fbdecc;
+}
+
+.toggle {
+    color: black;
+    background-color: #fbdecc;
+    height: 30px;
+}
+input{
+line-height: 30px;
 }

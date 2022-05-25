@@ -9,9 +9,7 @@
 </head>
 <body>
     <img class="logo_header" src="/static/images/Group_Project_Logo.png"></div> 
-    <div class = "forms">
-        <div class = "container">
-            <a data-controls-modal="login-form" data-backdrop="static" data-keyboard="false">
+        <div class = "log_reg_form">
             <div class = "content">
                 <form id="login" class="input-group-login"action="/login" method="post" >
                     {% with messages = get_flashed_messages(category_filter=['login']) %}
@@ -26,11 +24,10 @@
                     <input type="text" class="input-field" name="email" placeholder= "Email">
                     <input type="password" class="input-field" name="password" placeholder="Password">
                     <button type="submit" class="submit-btn"> Log in </button>
-                </form>
-                <p>New to Statler and Waldorf? <a button type="button" href="/registration" class="toggle-btn">Register</button></p>
+                </form> <br><br><br><br>
+                <p>New to Statler and Waldorf? <button class="toggle" onclick="window.location.href = '/registration';">Register Now</button></p>
             </div>
         </div>
-    </div>
         
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/login.js') }}"></script>
 
