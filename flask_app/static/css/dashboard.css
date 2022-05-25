@@ -48,6 +48,11 @@ header{
     width:100%;
 }
 
+.movie:hover img{
+    filter: blur(3px);
+    transition: transform 0.2s ease-in;
+}
+
 main{
     display: flex;
     flex-wrap: wrap;
@@ -63,10 +68,18 @@ main{
     letter-spacing: 0.5px;
 }
 
-
 .movie_title{
-    color: #fbdecc;
+    color: white;
+}
+
+a {
     text-decoration: none;
+}
+
+.movie_title_overview{
+    color: black;
+    text-decoration: none;
+
 }
 
 .movie_info span{
