@@ -4,52 +4,55 @@
     <meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Add An Actor / Actress</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add An Actor / Actress</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="static/css/dashboard.css"> 
+    <link rel="stylesheet" href="static/css/actor.css"> 
 </head> 
 <body> 
+    <header>
+        <div class="nav_bar">
+            <h1>Hi, ( user username )</h1>
+            <div class="header_links">
+                <a class="header_link" href="/create/movie">Add A Movie</a>
+                <br> <br>
+                <a class="header_link" href="/logout">Logout</a>
+            </div>
+        </div>
+    </header> 
+    
     <div class="container"> 
-        <form action="/create/actors" method="post"> 
+
+
+        <form action="/create/actors" enctype=multipart/form-data method="post"> 
+        {% with messages = get_flashed_messages(category_filter=['actor']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
             <p>Please submit 3 Actors or Actress for your Movie</p> 
             <p>Actor / Actress #1</p> 
+
             <div class="row">
                 <div class="col-md-10 mb-4 pb-2"> 
                     <div class="form-group form-outline"> 
-                        <input type="text" name="first_name" placeholder="Actor / actress first name" class="form-control ">
+                        <input type="text" name="first_name" placeholder="Actor's first name" class="form-control ">
                     </div>
                     <div class="form-group form-outline">
-                        <input type="text" name="last_name" placeholder="Actress last_name" class="form-control">
+                        <input type="text" name="last_name" placeholder="Actor's last name" class="form-control">
                     </div>
-                    <div class="form-group form-outline">
-                        <input type="text" name="username" placeholder="Actress image" class="form-control">
-                    </div> 
-                </div> 
-            </div> 
-            <p>Actor / Actress #2</p> 
-            <div class="row">
-                <div class="col-md-10 mb-4 pb-2"> 
-                    <div class="form-group form-outline">
-                        <input type="text" name="first_name" placeholder="Enter actor / actress first name" class="form-control ">
-                    </div>
-                    <div class="form-group form-outline">
-                        <input type="text" name="last_name" placeholder="Enter actor / actress last_name" class="form-control">
-                    </div>
-                    <div class="form-group form-outline">
-                        <input type="text" name="username" placeholder="Enter actor / actress image" class="form-control">
-                    </div>
-                </div> 
-            </div> 
-            <p>Actor / Actress #3</p> 
-            <div class="row">
-                <div class="col-md-10 mb-4 pb-2"> 
-                    <div class="form-group form-outline">
-                        <input type="text" name="first_name" placeholder="Enter actor / actress first name" class="form-control ">
-                    </div>
-                    <div class="form-group form-outline">
-                        <input type="text" name="last_name" placeholder="Enter actor / actress last_name" class="form-control">
-                    </div>
-                    <div class="form-group form-outline">
-                        <input type="text" name="username" placeholder="Enter actor / actress image" class="form-control">
+                    <div>
+
+
+
+                        <label for="file">Upload an Image</label>
+                        <input type="file" name="file">
+
                     </div>
                 </div> 
             </div> 

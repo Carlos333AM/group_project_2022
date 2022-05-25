@@ -5,23 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Actor Profile</title> 
+    <link rel="stylesheet" href="/static/css/actor.css">
+    <link rel="stylesheet" href="/static/css/movie_profile.css">
+    
 </head> 
 <body> 
-    <div> 
-        <button>Edit</button> 
-        <div> 
-            <a href="/dashboard">Homepage</a> | 
-            <a href="/logout">Logout</a> | 
-            <a href="/create/movie">Add a Movie</a> 
+    <div class="container"> 
+        <div class="movie_title">
+            <h1>Actors Profile</h1>
+        </div>
+        <header>
+            <div class="header_links">
+                <a  class="header_link" href="#">( user username )</a>
+                <a class="header_link" href="/dashboard">Dashboard</a>
+                <br> <br>
+                <a class="header_link" href="/logout">Logout</a>
+            </div>
+        </header> 
+        <div class="actor_content">
+            <div id="img">
+                <div class="actor_thumbnail"> 
+                    <img src="( movie img_path )" alt="actor image"> 
+                </div>
+            </div>
+            <div class="actor_description">
+                <p>All movies with (Actor Name)</p> 
+                <hr class="line">
+            </div>
+            <div class="actor_movie_list">
+                <p>( 1st movie )</p>
+                <p>( 2nd movie )</p>
+                <p>( 3rd movie )</p>
+                <hr class="line">
+            </div>
         </div> 
-    </div> 
-    <div> 
-        <a href="">(Actor Name)</a> 
-        <p>All movies with (Actor Name)</p> 
-    </div> 
-    <div>(1st movie)</div> 
-    <div>(2nd movie)</div> 
-    <div>(3rd movie)</div> 
-    <p>Comments</p> 
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
 </body> 
 </html> 

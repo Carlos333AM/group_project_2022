@@ -1,0 +1,35 @@
+/* using the code below to check the spacing of items instead of constantly using the browser inspect tool, will delete this once done with actor_profile page. */
+* { 
+    border: 0px; 
+    outline: yellow 1px dotted;
+}
+.actor_content { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+} 
+.actor_content p { 
+    text-align: center;
+}
+.actor_thumbnail { 
+width: 500px;
+height: 600px;
+margin: 1.5rem;
+border-radius: 3px;
+box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+background-color: var(--secondary-color);
+position: relative;
+overflow: hidden; 
+display: flex; 
+justify-content: center;
+}
+.ss_logo { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: -150px; 
+    margin-bottom: -100px;
+    width: 600px; 
+    height: 600px;
+}

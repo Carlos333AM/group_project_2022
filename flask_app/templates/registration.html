@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statler & Waldorf</title>
+    <link rel="stylesheet" href="static/css/log_reg.css">
+</head>
+<body>
+<img class="logo_header" src="/static/images/Group_Project_Logo.png"></div> 
+    </p>
+        <div class = "log_reg_form">
+            <div class = "content">
+                <form id="register" class="input-group-register" action="/register" method="post">
+                    {% with messages = get_flashed_messages(category_filter=['register']) %}
+                        {% if messages %}
+                        <div class="alert alert-danger" role="alert">                                                   
+                            {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                    <input type="text" class="input-field" name="first_name" placeholder="First name" >
+                    <input type="text" class="input-field" name="last_name" placeholder="Last name" >
+                    <input type="text" class="input-field" name="username" placeholder="Username" >
+                    <input type="text" class="input-field" name="email" placeholder= "Email" >
+                    <input type="password"  class="input-field" name="password" placeholder="Password" >
+                    <input type="password" class="input-field" name="confirm" placeholder="Confirm password" >
+                    <button type="submit" class="submit-btn"> Register </button>
+                </form> <br><br><br><br>                
+                <p>Already have an account?<button class="toggle" onclick="window.location.href = '/';">Login</button></p>
+            </div>
+        </div>  
+        
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/login.js') }}"></script>
+
+</body>
+</html>
