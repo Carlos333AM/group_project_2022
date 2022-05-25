@@ -1,5 +1,5 @@
 from flask_app import app
-from flask_app.controllers import user_controller, movie_controller, comment_controller
+from flask_app.controllers import user_controller, movie_controller, comment_controller, actor_controller 
 
 
 

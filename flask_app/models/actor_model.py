@@ -13,17 +13,25 @@ class Actor:
         self.updated_at = data['updated_at'] 
 
     # CREATE and SAVE actor into database 
-    # Leaving create_actor for now, not sure where actors will be coming from, are we creating them like users or are they part of the create movie section? 
     @classmethod 
     def create_actor(cls,data): 
         query = "INSERT INTO actors (first_name, last_name, img_path) VALUES (%(first_name)s,%(last_name)s,%(img_path)s);" 
         return connectToMySQL(cls.db_name).query_db(query, data) 
 
+
+    # CREATE and SAVE actor into database 
+    # @classmethod 
+    # def create_actor(cls,data): 
+    #     query = "INSERT INTO actors (first_name, last_name, img_path) VALUES (%(first_name)s,%(last_name)s,%(img_path)s);" 
+    #     return connectToMySQL(cls.db_name).query_db(query, data) 
+
+
+
     #RETRIVE ALL actors from database 
     @classmethod
     def get_all_actors(cls):
         query = "SELECT * FROM actors;"
-        results = connectToMySQL(cls.db_name).query_db(query)
+        results = connectToMySQL(cls.db_name).query_db(query) 
         print(results) 
         all_actors = [] 
         for row in results: 
@@ -37,3 +45,10 @@ class Actor:
         query = "SELECT * FROM actors WHERE id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
         return cls(results[0]) 
+
+
+    # @classmethod 
+    # def get_actor_with_movies(cls,data): 
+    #     query = " ;" 
+    #     results = connectToMySQL(cls.db_name).query_db(query,data)
+    #     return cls(results[0]) 

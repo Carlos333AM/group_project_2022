@@ -5,10 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Add An Actor / Actress</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head> 
 <body> 
-    <div>
-        
+    <div class="container"> 
+        <form action="/create/actors" method="post"> 
+            <p>Please submit 3 Actors or Actress for your Movie</p> 
+            <p>Actor / Actress #1</p> 
+            <div class="row">
+                <div class="col-md-10 mb-4 pb-2"> 
+                    <div class="form-group form-outline"> 
+                        <input type="text" name="first_name" placeholder="Actor / actress first name" class="form-control ">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="last_name" placeholder="Actress last_name" class="form-control">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="username" placeholder="Actress image" class="form-control">
+                    </div> 
+                </div> 
+            </div> 
+            <p>Actor / Actress #2</p> 
+            <div class="row">
+                <div class="col-md-10 mb-4 pb-2"> 
+                    <div class="form-group form-outline">
+                        <input type="text" name="first_name" placeholder="Enter actor / actress first name" class="form-control ">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="last_name" placeholder="Enter actor / actress last_name" class="form-control">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="username" placeholder="Enter actor / actress image" class="form-control">
+                    </div>
+                </div> 
+            </div> 
+            <p>Actor / Actress #3</p> 
+            <div class="row">
+                <div class="col-md-10 mb-4 pb-2"> 
+                    <div class="form-group form-outline">
+                        <input type="text" name="first_name" placeholder="Enter actor / actress first name" class="form-control ">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="last_name" placeholder="Enter actor / actress last_name" class="form-control">
+                    </div>
+                    <div class="form-group form-outline">
+                        <input type="text" name="username" placeholder="Enter actor / actress image" class="form-control">
+                    </div>
+                </div> 
+            </div> 
+            <button type="submit">Submit</button> 
+        </form>
     </div>
 </body> 
 </html> 
