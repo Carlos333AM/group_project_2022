@@ -14,6 +14,7 @@ body{
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #eee;
@@ -23,6 +24,8 @@ main{
     background-color: var(--primary-color);
     margin: 10rem;
     border-radius: 5px;
+    position: relative;
+    padding: 1.5rem;
 }
 
 header{
@@ -50,8 +53,8 @@ header{
 }
 
 .movie{
-    width: 500px;
-    height: 600px;
+    width: 350px;
+    height: 480px;
     margin: 1.5rem;
     border-radius: 3px;
     box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
@@ -61,14 +64,15 @@ header{
 }
 
 .movie_description{
-    width: 700px;
+    width: auto; 
     
 
 }
 
 .movie_info{
-    margin-top: 10px;
-    margin-left: 75px;
+    
+    display: flex;
+    flex-direction: column;
 }
 
 .movie img{
@@ -84,6 +88,7 @@ header{
 .movie_content{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
 }
 
@@ -112,6 +117,7 @@ textarea{
     border: solid thin #aaa;
     padding: 10px;
     background-color: transparent;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 
 }
 
@@ -157,3 +163,4 @@ textarea{
 .comment_title{
     color: whitesmoke;
 }
+

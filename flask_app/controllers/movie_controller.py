@@ -12,8 +12,6 @@ from flask_app.models.user_model import User
 from flask_app.models.actor_model import Actor 
 
 
-
-
 # Routes to page that shows a form to create a movie 
 @app.route('/create/movie')
 def create_movie(): 
@@ -60,7 +58,8 @@ def upload_file():
                 "description" : request.form ["description"], 
                 "user_id" : session["user_id"]
             }
-            Movie.create_movie(data)
+            movies_id = Movie.create_movie(data)
+            session["movies_id"] = movies_id
         # if successful, reaches add actors page to insert 3 actors. 
         return redirect('/actors') 
 
