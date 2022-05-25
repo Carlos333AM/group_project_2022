@@ -22,9 +22,22 @@
     </header> 
     
     <div class="container"> 
-        <form action="/create/actors" method="post"> 
-            <img src="static/images/Group_Project_Logo.png" alt="logo" class="ss_logo"> 
-            <p>Please add an Actor or Actress</p> 
+
+
+        <form action="/create/actors" enctype=multipart/form-data method="post"> 
+        {% with messages = get_flashed_messages(category_filter=['actor']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+            <p>Please submit 3 Actors or Actress for your Movie</p> 
+            <p>Actor / Actress #1</p> 
+
             <div class="row">
                 <div class="col-md-10 mb-4 pb-2"> 
                     <div class="form-group form-outline"> 
@@ -34,8 +47,12 @@
                         <input type="text" name="last_name" placeholder="Actor's last name" class="form-control">
                     </div>
                     <div>
-                        <label for="img_path">Upload an Image</label>
-                        <input type=file name=file>
+
+
+
+                        <label for="file">Upload an Image</label>
+                        <input type="file" name="file">
+
                     </div>
                 </div> 
             </div> 

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
+    <title>Statler & Waldorf</title>
     <link rel="stylesheet" href="static/css/log_reg.css">
-    </head>
+    
+</head>
 <body>
     <div class="full-page">
         <div id="login-form" class="login-page">
@@ -32,11 +33,11 @@
                     <input type="password" class="input-field" name="password" placeholder="Enter Password">
                     <button type="submit" class="submit-btn"> Log in </button>
                 </form>
-<!-- register potion -->
+                <!-- register potion -->
                 <form id="register" class="input-group-register" action="/register" method="post">
                     {% with messages = get_flashed_messages(category_filter=['register']) %}
                         {% if messages %}
-                        <div class="alert alert-danger" role="alert">
+                        <div class="alert alert-danger" role="alert">                                                   
                             {% for message in messages %}
                             <p>{{message}}</p>
                             {% endfor %}
@@ -56,4 +57,5 @@
     </div>
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/login.js') }}"></script>
 </body>
+
 </html>
