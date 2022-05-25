@@ -107,3 +107,8 @@ main{
     color: black;
     text-decoration: none;
 }
+
+.star {
+    width: 30px;
+    height: auto;
+}

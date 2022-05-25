@@ -49,7 +49,9 @@ header{
 .movie_title{
     padding-left: 1rem;
     padding-top: 0.5rem;
-
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .movie{
@@ -164,3 +166,11 @@ textarea{
     color: whitesmoke;
 }
 
+.star {
+    width: 30px;
+    height: auto;
+}
+
+h1{
+    margin-bottom: 10px;
+}
