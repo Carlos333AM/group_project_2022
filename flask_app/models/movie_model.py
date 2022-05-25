@@ -15,7 +15,8 @@ class Movie:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.user_id = data['user_id']
-        self.actor = None 
+        self.actor = []
+        # changed from none to list ( makes it class instances below)
         
     # CREATE and SAVE movie into database
     @classmethod
@@ -77,7 +78,7 @@ class Movie:
     # will list all the movies a actor/ actress is in. 
     @classmethod 
     def get_movies_with_actor(cls,data): 
-        query = "SELECT * FROM movies LEFT JOIN actors_has_movies on movies.id = actors_has_movies.movie_id LEFT JOIN actors ON actors_has_movies.actor_id WHERE actors.id = %(id)s;" 
+        query = "SELECT * FROM movies LEFT JOIN actors_has_movies ON actors_has_movies.movie_id = movies.id LEFT JOIN toppings ON actors_has_movies.actor_id = actors.id WHERE movies.id = %(id)s;" 
         results = connectToMySQL(cls.db_name).query_db(query,data) 
         movie = cls(results[0]) 
         for row in results: 
@@ -89,7 +90,8 @@ class Movie:
                 'created_at' : row['created_at.id'], 
                 'updated_at' : row['updated_at.id'] 
             } 
-            actor_model.Actor(actor_info) 
+            movie.actor.append(actor_model.Actor(actor_info))
+            # edited 
         return movie 
 
     #DELETE movie by movie's id 
