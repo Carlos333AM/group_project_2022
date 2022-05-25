@@ -30,3 +30,8 @@ def actor():
     id = Actor.create_actor(data) 
     session['user_id'] = id
     return redirect('/movie_profile') 
+
+# remember to change this, using this just to style actor_profile 
+@app.route('/test') 
+def test_actor(): 
+    return render_template('actor_profile.html') 
