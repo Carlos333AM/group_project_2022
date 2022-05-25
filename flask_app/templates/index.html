@@ -4,20 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
+    <title>Statler & Waldorf</title>
     <link rel="stylesheet" href="static/css/log_reg.css">
-    </head>
+</head>
 <body>
-    <div class="full-page">
-        <div id="login-form" class="login-page">
-            <!-- form box -->
-            <div class="form-box">
-                <div class="button-box">
-                    <div id="btn"></div>
-                        <button type="button" onclick="login()" class="toggle-btn"> Login</button>
-                        <button type="button" onclick="register()" class="toggle-btn">Register</button>
-                </div>
-                <!-- login portion -->
+    <img class="logo_header" src="/static/images/Group_Project_Logo.png"></div> 
+        <div class = "log_reg_form">
+            <div class = "content">
                 <form id="login" class="input-group-login"action="/login" method="post" >
                     {% with messages = get_flashed_messages(category_filter=['login']) %}
                         {% if messages %}
@@ -28,32 +21,15 @@
                         </div>
                         {% endif %}
                     {% endwith %}
-                    <input type="text" class="input-field" name="email" placeholder="Enter Email">
-                    <input type="password" class="input-field" name="password" placeholder="Enter Password">
+                    <input type="text" class="input-field" name="email" placeholder= "Email">
+                    <input type="password" class="input-field" name="password" placeholder="Password">
                     <button type="submit" class="submit-btn"> Log in </button>
-                </form>
-<!-- register potion -->
-                <form id="register" class="input-group-register" action="/register" method="post">
-                    {% with messages = get_flashed_messages(category_filter=['register']) %}
-                        {% if messages %}
-                        <div class="alert alert-danger" role="alert">
-                            {% for message in messages %}
-                            <p>{{message}}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    {% endwith %}
-                    <input type="text" class="input-field" name="first_name" placeholder="Enter your first name:" >
-                    <input type="text" class="input-field" name="last_name" placeholder="Enter your last name" >
-                    <input type="text" class="input-field" name="username" placeholder="Choose a username" >
-                    <input type="text" class="input-field" name="email" placeholder= "Enter your email" >
-                    <input type="password"  class="input-field" name="password" placeholder="Enter password" >
-                    <input type="password" class="input-field" name="confirm" placeholder="Confirm password" >
-                    <button type="submit" class="submit-btn"> Register </button>
-                </form>
+                </form> <br><br><br><br>
+                <p>New to Statler and Waldorf? <button class="toggle" onclick="window.location.href = '/registration';">Register Now</button></p>
             </div>
         </div>
-    </div>
+        
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/login.js') }}"></script>
+
 </body>
 </html>
