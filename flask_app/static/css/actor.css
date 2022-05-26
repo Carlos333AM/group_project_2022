@@ -23,4 +23,13 @@ overflow: hidden;
 display: flex; 
 justify-content: center;
 }
-
+.ss_logo { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: -150px; 
+    margin-bottom: -100px;
+    width: 600px; 
+    height: 600px;
+}

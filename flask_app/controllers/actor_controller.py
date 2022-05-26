@@ -45,6 +45,9 @@ def allowed_file(filename):
 def upload_actor():
     #check if user in session if not kick out
     if "user_id" not in session:
+
+
+
         return redirect('/logout')
     # if doesn't reach validation requiremnts just redirects back to the page it's on
     if request.method == 'POST':
@@ -82,4 +85,5 @@ def upload_actor():
     # if successful, reaches add actors page to insert 3 actors. 
     return redirect('/dashboard') 
     # in dashboard, maybe create with jinja 
+
 
