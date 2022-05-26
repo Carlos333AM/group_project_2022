@@ -15,25 +15,13 @@
             <div class="header_links">
                 <a class="header_link" href="/create/movie">Add A Movie</a>
                 <br> <br>
+                <a href="/dashboard" class="header_link">Dashboard</a>
                 <a class="header_link" href="/logout">Logout</a>
             </div>
         </div>
     </header> 
-    <nav class="d-flex justify-content-between align-items-center col-12">
-        <h1 class="text-center">Welcome, {{user.username}}!</h1>
-        <div class="d-flex col-4 justify-content-around">
-            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
-            <a href="/logout" class="btn btn-info">Logout</a>
-        </div>
-    </nav>
-
-    <h1>This is where you edit a movie</h1>
-    <a href="/dashboard">Dashboard</a>
-    <h1>{{user.username}}</h1>
-    <img src="{{movie.img_path}}" alt="">
-
+    <img src="{{movie.img_path}}" alt="" class="edit_movie_img">
     <form action="/update/movie/{{movie.id}}" method="post" enctype=multipart/form-data class="col-10 p-4 mx-auto d-flex justify-content-center">
-        <h2 class="text-primary text-center">Add a Movie</h2>
         {% with messages = get_flashed_messages(category_filter=['movie']) %}
             {% if messages %}
             <div class="alert alert-danger" role="alert">
@@ -44,7 +32,6 @@
             </div>
             {% endif %}
         {% endwith %}
-        
         <div class="d-flex justify-content-between col-8">
             <div class="col-8">
                 <div class="form-group">
@@ -64,11 +51,9 @@
                     <input type="file" name="file">
                 </div>
                 <br>
-                <input type="submit" value="Edit Movie" class="btn btn-primary">
+                <input type="submit" value="Edit Movie" class="btn btn-primary" id="edit_button">
             </div>
             </div>
     </form>
-
-
 </body>
 </html>

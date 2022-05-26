@@ -41,4 +41,12 @@ header{
     color: #fbdecc;
     margin-left: 10px;
     text-decoration: none;
+} 
+
+.edit_movie_img {
+    margin-left: 333px;
+}
+
+#edit_button { 
+    margin-bottom: 200px;
 }
