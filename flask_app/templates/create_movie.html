@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/create_movie.css">
     <title>Add A Movie</title>
 </head>
@@ -17,7 +17,6 @@
         </div>
     </header>
     <main>
-        
         <form action="/upload/movie" method="post" enctype=multipart/form-data>
             <h1>Add a Movie</h1>
             {% with messages = get_flashed_messages(category_filter=['movie']) %}
@@ -30,10 +29,8 @@
                 </div>
                 {% endif %}
             {% endwith %}
-            
             <div>
                 <div class="create_movie_row">
-
                     <div>
                         <div class="form-group">
                             <label for="rating"><img src = "/static/images/star.png" style = height:30px; width=auto;)/>Rating:</label>
