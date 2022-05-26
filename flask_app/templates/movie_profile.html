@@ -45,7 +45,7 @@
                     
                     
                     {% for a in movie.actor %}
-                        <a href="/actor/profile/{{a.id}}"> {{a.first_name}} {{a.last_name}}</a>
+                        <a href="/actor/profile/{{a.id}}" style="color: white;" > {{a.first_name}} {{a.last_name}}</a>
                     {% endfor %}
                     
                     <hr class="line">
@@ -53,11 +53,7 @@
             </div>
 
         </div>
-    
-        
-    
-        
-    
+
         <form action='/add/comment' method="post">
             {% with messages = get_flashed_messages(category_filter=['post']) %}
                 {% if messages %}
@@ -78,9 +74,10 @@
                     <input id="comment_button" type="submit" value="Post">
                 </div>
 
+
                 <div class="post_bar">
                     <!-- Comments should appear here -->
-                    {%for comment in movie.comments%}
+                    {%for comment in comments%}
                         <div class="comment_container">
                             <div class="comment_card">
                                 {% if comment.user.id != session.user_id%}
