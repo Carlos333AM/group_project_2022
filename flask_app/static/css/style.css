@@ -1,4 +1,4 @@
 body{
-    background-image: url(/static/images/popcorn.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/images/popcorn.jpg);
 }
 

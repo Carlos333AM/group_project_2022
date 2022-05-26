@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#4a0402;
+    --secondary-color:#620601;
+}
+
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/static/images/lights.jpg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Play', sans-serif;
+    margin: 0;
+    color: #eee;
+}
+
+main{
+    background-color: var(--primary-color);
+    margin: 10rem;
+    border-radius: 5px;
+}
+
+header{
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    margin: 1.5rem;
+}
+
+.header_links{
+    display: flex;
+    justify-content: flex-end;
+    color: #fbdecc;
+}
+
+.header_link{
+    color: #fbdecc;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+form{
+    height: 50rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem;
+    font-family: 'Play', sans-serif;
+}
+
+.form-group{
+    margin-bottom: 3rem;
+    outline: none;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Play', sans-serif;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.btn{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    position: relative;
+    color: black;
+    background-color: white;
+    font-family: 'Play', sans-serif;
+    border-radius: 20%;
+    box-shadow: #555;
+}
+
+.btn::after .btn::before{
+    border: 3px solid black;
+    content: "";
+    position:absolute;
+    width: calc(100% - 6px); 
+    height: calc(100% - 6px);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::after{
+    transform: translate(-5px, -5px);
+}
+
+.btn:hover::before{
+    transform: translate(5px, 5px);
+}

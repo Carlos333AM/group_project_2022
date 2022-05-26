@@ -12,7 +12,7 @@
 <body> 
     <header>
         <div class="nav_bar">
-            <h1>Hi, ( user username )</h1>
+            <h1>Hi, {{user.username}}</h1>
             <div class="header_links">
                 <a class="header_link" href="/create/movie">Add A Movie</a>
                 <br> <br>
@@ -20,10 +20,8 @@
             </div>
         </div>
     </header> 
-    
+    <img src="/static/images/Group_Project_Logo.png" alt="S&S Logo" class="ss_logo"> 
     <div class="container"> 
-
-
         <form action="/create/actors" enctype=multipart/form-data method="post"> 
         {% with messages = get_flashed_messages(category_filter=['actor']) %}
             {% if messages %}
@@ -38,7 +36,14 @@
             <p>Please submit an Actor or Actress for your Movie</p> 
             <p>Actor / Actress:</p> 
 
-            <div class="row">
+
+
+
+
+            <div class="add_actor_section">
+                <p>Please submit an Actor or Actress for your Movie</p> 
+            </div> 
+            <div class="add_actor_section">
                 <div class="col-md-10 mb-4 pb-2"> 
                     <div class="form-group form-outline"> 
                         <input type="text" name="first_name" placeholder="Actor's first name" class="form-control ">
@@ -47,16 +52,12 @@
                         <input type="text" name="last_name" placeholder="Actor's last name" class="form-control">
                     </div>
                     <div>
-
-
-
                         <label for="file">Upload an Image</label>
                         <input type="file" name="file">
-
                     </div>
                 </div> 
-            </div> 
-            <button type="submit">Submit</button> 
+            </div>
+            <button type="submit" class="add_actor_button">Submit</button> 
         </form>
     </div>
 </body> 
