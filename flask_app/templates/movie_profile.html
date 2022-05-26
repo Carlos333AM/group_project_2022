@@ -41,10 +41,13 @@
 
                 <!-- for loop - jinja  -->
                 <div class="actors">
-                    <p>STARS</p>
-                    <p>{{ actor.first_name }}</p>
-                    <p>actress</p>
-                    <p>actor</p>
+                    <p>Main Star:</p>
+                    
+                    
+                    {% for a in movie.actor %}
+                        <a href="/actor/profile/{{a.id}}"> {{a.first_name}} {{a.last_name}}</a>
+                    {% endfor %}
+                    
                     <hr class="line">
                 </div>
             </div>
