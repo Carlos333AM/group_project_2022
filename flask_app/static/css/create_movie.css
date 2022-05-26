@@ -67,7 +67,6 @@ input[type=text] {
     box-sizing: border-box;
     outline: none;
     font-family: 'Play', sans-serif;
-    box-shadow: #555;
 }
 
 input[type=text]:focus {
