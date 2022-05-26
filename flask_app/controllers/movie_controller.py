@@ -3,13 +3,18 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/Users/blairhicks/Desktop/group_project_2022/flask_app/static/images'
+UPLOAD_FOLDER = '/Users/mikaylathomas/Desktop/group_project_2022/flask_app/static/images'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 from flask_app.models.movie_model import Movie 
 from flask_app.models.user_model import User 
 from flask_app.models.actor_model import Actor 
+
+
+@app.route('/test')
+def test():
+    return render_template("test.html")
 
 
 # Routes to page that shows a form to create a movie 
