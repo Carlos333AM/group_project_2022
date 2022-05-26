@@ -78,18 +78,20 @@ class Movie:
     # will list all the movies a actor/ actress is in. 
     @classmethod 
     def get_movies_with_actor(cls,data): 
-        query = "SELECT * FROM movies LEFT JOIN actors_has_movies ON actors_has_movies.movie_id = movies.id LEFT JOIN toppings ON actors_has_movies.actor_id = actors.id WHERE movies.id = %(id)s;" 
+        query = "SELECT * FROM movies LEFT JOIN actors_has_movies ON actors_has_movies.movie_id = movies.id LEFT JOIN actors ON actors_has_movies.actor_id = actors.id WHERE movies.id = %(id)s;" 
         results = connectToMySQL(cls.db_name).query_db(query,data) 
+
         movie = cls(results[0]) 
         for row in results: 
             actor_info = { 
                 'id' : row['actors.id'], 
-                'first_name' : row['first_name.id'], 
-                'last_name' : row['last_name.id'], 
-                'img_path' : row['img_path.id'], 
-                'created_at' : row['created_at.id'], 
-                'updated_at' : row['updated_at.id'] 
+                'first_name' : row['first_name'], 
+                'last_name' : row['last_name'], 
+                'img_path' : row['img_path'], 
+                'created_at' : row['created_at'], 
+                'updated_at' : row['updated_at'] 
             } 
+            print("++++++++++++")
             movie.actor.append(actor_model.Actor(actor_info))
             # edited 
         return movie 

@@ -16,7 +16,7 @@
         </div>
         <header>
             <div class="header_links">
-                <a  class="header_link" href="#">( user username )</a>
+                <a  class="header_link" href="#"></a>
                 <a class="header_link" href="/dashboard">Dashboard</a>
                 <br> <br>
                 <a class="header_link" href="/logout">Logout</a>
@@ -25,17 +25,18 @@
         <div class="actor_content">
             <div id="img">
                 <div class="actor_thumbnail"> 
-                    <img src="( movie img_path )" alt="actor image"> 
+                    <img src="{{actor.img_path}}" alt="actor image"> 
                 </div>
             </div>
             <div class="actor_description">
-                <p>All movies with (Actor Name)</p> 
+                {%  for a in actor.movies %}
+                    <p>All movies with {{a.title}} </p> 
+                {% endfor  %}
                 <hr class="line">
             </div>
             <div class="actor_movie_list">
-                <p>( 1st movie )</p>
-                <p>( 2nd movie )</p>
-                <p>( 3rd movie )</p>
+                <p>{{actor.first_name }} {{actor.last_name}}</p>
+
                 <hr class="line">
             </div>
         </div> 

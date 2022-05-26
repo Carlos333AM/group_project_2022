@@ -57,8 +57,9 @@ class Actor:
 
     @classmethod 
     def get_actor_with_movies(cls,data): 
-        query = " SELECT * FROM actors LEFT JOIN actors_has_movies ON actors_has_movies.actor.id = actors.id LEFT JOIN movies on actors_has_movies.movie_id = movies.id WHERE actors.id = %(id)s;" 
+        query = " SELECT * FROM actors LEFT JOIN actors_has_movies ON actors_has_movies.actor_id = actors.id LEFT JOIN movies on actors_has_movies.movie_id = movies.id WHERE actors.id = %(id)s;" 
         results = connectToMySQL(cls.db_name).query_db(query,data)
+        print(results)
         actor = cls(results[0])
         for row_from_db in results:
             movie_data = {
@@ -67,8 +68,9 @@ class Actor:
                 "title" : row_from_db["title"],
                 "img_path" : row_from_db["img_path"],
                 "description" : row_from_db["description"],
-                "created_at" : row_from_db["toppings.created_at"],
-                "updated_at" : row_from_db["toppings.updated_at"]
+                "user_id" : row_from_db["user_id"],
+                "created_at" : row_from_db["movies.created_at"],
+                "updated_at" : row_from_db["movies.updated_at"]
                 
             }
             actor.movies.append(movie_model.Movie(movie_data))

@@ -36,16 +36,18 @@
             <div class="movie_info">
                 <div class="movie_description">
                     <p>{{movie.description}}</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit itaque suscipit quam incidunt doloremque molestiae necessitatibus. Itaque deserunt explicabo officiis a adipisci? Eaque, aut! Ducimus reprehenderit autem tempora et! Natus.</p>
                     <hr class="line">
                 </div>
 
                 <!-- for loop - jinja  -->
                 <div class="actors">
-                    <p>STARS</p>
-                    <p>Robert Downey Jr.</p>
-                    <p>actress</p>
-                    <p>actor</p>
+                    <p>Main Star:</p>
+                    
+                    
+                    {% for a in movie.actor %}
+                        <a href="/actor/profile/{{a.id}}"> {{a.first_name}} {{a.last_name}}</a>
+                    {% endfor %}
+                    
                     <hr class="line">
                 </div>
             </div>

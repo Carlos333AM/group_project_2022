@@ -3,7 +3,8 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/Users/blairhicks/Desktop/group_project_2022/flask_app/static/images'
+UPLOAD_FOLDER = 'C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images'
+# C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images please do not delete this time. 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -135,10 +136,12 @@ def show_movie_profile(id):
     user_data = {
         "id" : session["user_id"]
     }
-    comment_data = {
-        "id" : id
-    }
-    return render_template("movie_profile.html", movie = Movie.get_one_movie(data),  user = User.get_by_id(user_data))
+    # comment_data = {
+    #     "id" : id
+    # As of right now, it is holding same id that is in data (the movie id)
+    # }
+
+    return render_template("movie_profile.html", user = User.get_by_id(user_data), movie = Movie.get_movies_with_actor(data))
 
 
 #Deltes movie by movie id 
@@ -151,29 +154,5 @@ def destroy_movie(id):
     }
     Movie.destroy(data)
     return redirect('/dashboard')
-
-
-
-    
-    
-    
-# Route that posts new movie. 
-# @app.route('/add/movie', methods = ['POST'])
-# def add_movie(): 
-#     if 'user_id' not in session:
-#         return redirect('/logout')
-#     if doesn't reach validation requiremnts just redirects back to the page it's on
-#     if not Movie.validate_movie(request.form):
-#         return redirect ('/create/movie') 
-#     data = {
-#         "rating" : request.form["rating"], 
-#         "title" : request.form["title"], 
-#         "img_path" : request.form ["img_path"], 
-#         "description" : request.form ["description"], 
-#         "user_id" : session["user_id"]
-#     }
-#     Movie.create_movie(data)
-#     if successful reaches dashboard? or new movie profile?
-#     return redirect ('/dashboard')
 
 
