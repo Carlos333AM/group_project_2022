@@ -3,7 +3,9 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images'
+
+UPLOAD_FOLDER = '/Users/mikaylathomas/Desktop/group_project_2022/flask_app/static/images'
+
 # C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images please do not delete this time. 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -11,6 +13,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 from flask_app.models.movie_model import Movie 
 from flask_app.models.user_model import User 
 from flask_app.models.actor_model import Actor 
+from flask_app.models.comment_model import Comment 
+
 
 
 @app.route('/test')
@@ -141,12 +145,12 @@ def show_movie_profile(id):
     user_data = {
         "id" : session["user_id"]
     }
-    # comment_data = {
-    #     "id" : id
+    comment_data = {
+        "id" : id
     # As of right now, it is holding same id that is in data (the movie id)
-    # }
+    }
 
-    return render_template("movie_profile.html", user = User.get_by_id(user_data), movie = Movie.get_movies_with_actor(data))
+    return render_template("movie_profile.html", user = User.get_by_id(user_data), movie = Movie.get_movies_with_actor(data), comments = Comment.get_comments_for_one_movie(comment_data))
 
 
 #Deltes movie by movie id 

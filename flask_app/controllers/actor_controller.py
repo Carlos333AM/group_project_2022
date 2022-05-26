@@ -7,7 +7,10 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images'
+
+UPLOAD_FOLDER = '/Users/mikaylathomas/Desktop/group_project_2022/flask_app/static/images'
+
+
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 

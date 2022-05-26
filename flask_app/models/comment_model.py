@@ -51,7 +51,7 @@ class Comment:
 
     @classmethod
     def get_comments_for_one_movie(cls,data): 
-        query = "SELECT * FROM comments JOIN users ON comments.user_id = users.id WHERE movie_id = %(movie_id)s;"
+        query = "SELECT * FROM comments JOIN users ON comments.user_id = users.id WHERE movie_id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query, data)
         comments = []
         for row in results: 
