@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@ body{
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Play', sans-serif;
     margin: 0;
     color: #eee;
 }
@@ -81,6 +81,8 @@ input[type=text]:focus {
     color: black;
     background-color: white;
     font-family: 'Play', sans-serif;
+    border-radius: 20%;
+    box-shadow: #555;
 }
 
 .btn::after .btn::before{

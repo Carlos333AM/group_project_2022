@@ -1,4 +1,4 @@
-from flask import render_template, redirect, session, request, flash 
+from flask import render_template, redirect, session, request, flash, request
 from flask_app import app 
 from flask_app.models.comment_model import Comment 
 from flask_app.models.movie_model import Movie
@@ -20,7 +20,7 @@ def add_comment():
     
     Comment.save(comment_data)
     # User.save(user_data)
-    return redirect ('/dashboard')
+    return redirect (request.referrer)
     # return render_template('dashboard.html', comment = Comment.post_with_comment(comment_data))
 
 
@@ -32,4 +32,4 @@ def destroy_comment(id):
         "id":id
     }
     Comment.destroy(data)
-    return redirect('/dashboard')
+    return redirect(request.referrer)
