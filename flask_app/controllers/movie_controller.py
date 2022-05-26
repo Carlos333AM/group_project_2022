@@ -13,6 +13,11 @@ from flask_app.models.user_model import User
 from flask_app.models.actor_model import Actor 
 
 
+@app.route('/test')
+def test():
+    return render_template("test.html")
+
+
 # Routes to page that shows a form to create a movie 
 @app.route('/create/movie')
 def create_movie(): 
