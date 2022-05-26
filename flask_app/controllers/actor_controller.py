@@ -7,7 +7,7 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images'
+UPLOAD_FOLDER = '/Users/carlosamezcuajr/Desktop/group_project_2022/flask_app/static/images'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -85,5 +85,13 @@ def upload_actor():
     # if successful, reaches add actors page to insert 3 actors. 
     return redirect('/dashboard') 
     # in dashboard, maybe create with jinja 
+
+
+
+
+# Carlos, remember to rename this URL path.
+@app.route('/test/actor-profile') 
+def test_actor(): 
+    return render_template('actor_profile.html') 
 
 

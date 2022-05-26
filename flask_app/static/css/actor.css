@@ -1,14 +1,9 @@
-/* using the code below to check the spacing of items instead of constantly using the browser inspect tool, will delete this once done with actor_profile page. */
-* { 
-    border: 0px; 
-    outline: yellow 1px dotted;
-}
 .actor_content { 
     display: flex; 
     flex-direction: column; 
     align-items: center;
 } 
-.actor_content p { 
+.actor_content, .actor_description { 
     text-align: center;
 }
 .actor_thumbnail { 
@@ -28,8 +23,21 @@ justify-content: center;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    margin-top: -150px; 
+    margin-top: -170px; 
     margin-bottom: -100px;
-    width: 600px; 
+    width: 700px; 
     height: 600px;
 }
+.actor_movie_list { 
+    margin-bottom: 200px;
+} 
+.actors_profile_title { 
+    margin-left: 10px;
+}
+.add_actor_section { 
+    display: flex; 
+    justify-content: center;
+} 
+.add_actor_button {
+    margin-left: 108px;
+} 
