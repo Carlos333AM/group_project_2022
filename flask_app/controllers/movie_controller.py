@@ -3,7 +3,8 @@ from flask import render_template, redirect, session, request, flash, url_for
 import os
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/Users/mikaylathomas/Desktop/group_project_2022/flask_app/static/images'
+UPLOAD_FOLDER = '/Users/carlosamezcuajr/Desktop/group_project_2022/flask_app/static/images'
+# 'C:\\Users\\Alexis\\OneDrive\\Desktop\\group_project_2022\\flask_app\\static\\images'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -143,7 +144,10 @@ def show_movie_profile(id):
     comment_data = {
         "id" : id
     }
-    return render_template("movie_profile.html", movie = Movie.get_one_movie(data),  user = User.get_by_id(user_data))
+    actor_data = { 
+        "id" : id
+    }
+    return render_template("movie_profile.html", movie = Movie.get_one_movie(data),  user = User.get_by_id(user_data), actor = Actor.get_actor_with_movies(actor_data)) 
 
 
 #Deltes movie by movie id 
