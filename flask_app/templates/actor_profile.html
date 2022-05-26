@@ -30,14 +30,13 @@
                 </div>
             </div>
             <div class="actor_description">
-                {%  for a in actor.movies %}
-                    <p>All movies with {{a.title}} </p> 
-                {% endfor  %}
+                <p> {{actor.first_name }} {{actor.last_name}}</p>
                 <hr class="line">
             </div>
             <div class="actor_movie_list">
-                <p>{{actor.first_name }} {{actor.last_name}}</p>
-
+                {%  for a in actor.movies %}
+                    <p>{{a.title}} </p> 
+                {% endfor  %}
                 <hr class="line">
             </div>
         </div> 
